@@ -1,0 +1,18 @@
+var ambr = artifacts.require("./SubscriptionManagementETH.sol");
+var mgmterc20 = artifacts.require("./SubscriptionManagementETH.sol");
+var erc20 = artifacts.require("./AmbrToken.sol");
+
+module.exports = function(deployer) {
+    //deployer.deploy(ambr);
+    var wallet;
+
+    deployer.then(function() {
+        return erc20.new();
+
+    }).then(function(instance) {
+
+        console.log('token contract:', instance.address);
+        instance.mint('0x8E5cbfD2823D850218d41F00f1af2bE57E4bAe4b', 1000000000000000000 * 1000000);
+
+    });
+};
